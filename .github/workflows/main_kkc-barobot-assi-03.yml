@@ -22,6 +22,11 @@ jobs:
           node-version: '20.x'
 
       - name: npm install, build, and test
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_ASSISTANT_ID: ${{ secrets.OPENAI_ASSISTANT_ID }}
+
+      - name: npm install, build, and test
         run: |
           npm install
           npm run build --if-present
